@@ -5,8 +5,8 @@ import TP1.Controlleur;
 public class Metier
 {
 
-    public Metier(Controlleur controlleur)
-    {
+	public Metier(Controlleur controlleur)
+	{
 
-    }
+	}
 }
