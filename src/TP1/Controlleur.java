@@ -5,8 +5,8 @@ import TP1.metier.Metier;
 
 public class Controlleur
 {
-	private Metier            metier;
-	private FenetrePrincipale ihm;
+    private Metier            metier;
+    private FenetrePrincipale ihm;
 
 	public Controlleur()
 	{
