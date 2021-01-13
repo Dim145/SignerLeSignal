@@ -4,16 +4,22 @@ import java.awt.BorderLayout;
 
 import javax.swing.*;
 
+import TP1.metier.Metier;
+
 public class FenetrePrincipale extends JFrame
 {
-	PanelHaut  pnlHaut  = new PanelHaut();
+	Metier     metier;
+	PanelHaut  pnlHaut;
 	PanelGraph pnlGraph;
 
-	public FenetrePrincipale()
+	public FenetrePrincipale(Metier metier)
 	{
 		this.setTitle("Projet Boireau/Dubois");
 		this.setSize(500, 500);
 		
+
+		this.metier  = metier;
+		this.pnlHaut = new PanelHaut(metier);
 		this.add(pnlHaut, BorderLayout.NORTH);
 		
 		

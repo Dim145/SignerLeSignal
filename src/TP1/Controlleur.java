@@ -11,7 +11,7 @@ public class Controlleur
 	public Controlleur()
 	{
 		this.metier = new Metier(this);
-		this.ihm    = new FenetrePrincipale();
+		this.ihm    = new FenetrePrincipale(metier);
 	}
 
 	public static void main(String[] args)

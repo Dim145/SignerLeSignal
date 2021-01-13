@@ -19,15 +19,20 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.MaskFormatter;
 import javax.swing.text.NumberFormatter;
 
+import TP1.metier.Metier;
+
 public class PanelHaut extends JPanel
 {
-	JFormattedTextField          txtfBinaire;
+	Metier              metier;
+	JFormattedTextField txtfBinaire;
 	JComboBox<String>   cbbChoix;
 	JButton             btnValider;
 	
-	public PanelHaut()
+	public PanelHaut(Metier metier)
 	{
 		this.setLayout(new GridLayout(0,3));
+		
+		this.metier = metier;
 		
 		MaskFormatter binaireOnly = null;
 		try
@@ -37,14 +42,6 @@ public class PanelHaut extends JPanel
 		binaireOnly.setValidCharacters("01");
 		
 		this.txtfBinaire = new JFormattedTextField(binaireOnly);
-		/*this.txtfBinaire.getDocument().addDocumentListener(new DocumentListener()
-		{
-			public void removeUpdate (DocumentEvent e) {}
-			public void changedUpdate(DocumentEvent e){}
-			@Override
-			public void insertUpdate(DocumentEvent e)
-			{}
-		});*/
 		
 		this.cbbChoix = new JComboBox<String>();
 		this.cbbChoix.addItem("NRZ");
@@ -60,7 +57,7 @@ public class PanelHaut extends JPanel
 			public void actionPerformed(ActionEvent e)
 			{
 				//envoi de données vers le metier via txtfBinaire.getText()
-				System.out.println("envoi");
+				metier.creerTableaux(txtfBinaire.getText());
 			}
 		});
 		
