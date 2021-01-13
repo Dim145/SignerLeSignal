@@ -1,0 +1,10 @@
+
+# pour intelliJ
+.idea
+SignerLeSignal.iml
+
+out
+
+# pour eclipse
+
+.git
