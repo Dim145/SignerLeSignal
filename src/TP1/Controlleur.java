@@ -11,10 +11,12 @@ public class Controlleur
     public Controlleur()
     {
         this.metier = new Metier(this);
+
+        //this.metier.creerTableaux("110110");
     }
 
     public static void main(String[] args)
     {
-
+        new Controlleur();
     }
 }
