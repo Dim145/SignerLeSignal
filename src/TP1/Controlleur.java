@@ -16,7 +16,6 @@ public class Controlleur
 	
 	public void creerTableau(String txt)
 	{
-		System.out.println(txt);
 		this.metier.creerTableaux(txt);
 	}
 
