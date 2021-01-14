@@ -11,6 +11,7 @@ public class Controlleur
 	public Controlleur()
 	{
 		this.metier = new Metier(this);
+		this.metier.changeType(TypeSignal.MANCHESTER_DIFF);
 		this.ihm    = new FenetrePrincipale(this);
 	}
 	

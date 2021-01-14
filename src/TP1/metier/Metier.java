@@ -62,7 +62,37 @@ public class Metier
 
                     case MANCHESTER ->
                     {
+                        tabDessin[cpt*2  ] = (current == '1' ? VAL_HAUT : VAL_BAS) + VAL_DROITE;
+                        tabDessin[cpt*2+1] = current == '1' ? VAL_BAS  : VAL_HAUT;
 
+                        if ( suivant != '2' && suivant == current )
+                            tabDessin[cpt*2+1] += VAL_DROITE;
+
+                    }
+
+                    case MANCHESTER_DIFF ->
+                    {
+                        if( cpt == 0 )
+                        {
+                            tabDessin[0] = (current == '0' ? VAL_HAUT : VAL_BAS) + VAL_DROITE;
+                            tabDessin[1] =  current == '0' ? VAL_BAS  : VAL_HAUT;
+                        }
+                        else
+                        {
+                            if ( current == '0' )
+                            {
+                                tabDessin[cpt*2  ] = tabDessin[(cpt-1)*2  ];
+                                tabDessin[cpt*2+1] = tabDessin[(cpt-1)*2+1];
+                            }
+                            else
+                            {
+                                tabDessin[cpt*2  ] = (tabDessin[(cpt-1)*2] == VAL_BAS + VAL_DROITE ? VAL_HAUT : VAL_BAS) + VAL_DROITE;
+                                //tabDessin[cpt*2+1] = tabDessin[(cpt-1)*2+1] == ;
+                            }
+                        }
+
+                        if (suivant == '0')
+                            tabDessin[cpt*2+1] += VAL_DROITE;
                     }
                 }
             }

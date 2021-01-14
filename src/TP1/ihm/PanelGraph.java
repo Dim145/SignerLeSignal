@@ -1,6 +1,6 @@
 package TP1.ihm;
 
-import javax.swing.JPanel;
+import javax.swing.*;
 
 public class PanelGraph extends JPanel
 {

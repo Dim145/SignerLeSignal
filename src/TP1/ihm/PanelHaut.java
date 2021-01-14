@@ -12,63 +12,64 @@ import javax.swing.JTextField;
 
 import TP1.TypeSignal;
 
-public class PanelHaut extends JPanel {
-	FenetrePrincipale   frame;
-	JTextField          txtfBinaire;
-	JComboBox<String>   cbbChoix;
-	JButton             btnValider;
-	JPanel              pnlDroite;
+public class PanelHaut extends JPanel
+{
+    FenetrePrincipale frame;
+    JTextField txtfBinaire;
+    JComboBox<TypeSignal> cbbChoix;
+    JButton btnValider;
+    JPanel pnlDroite;
 
-	public PanelHaut(FenetrePrincipale frame) {
-		this.setLayout(new BorderLayout());
-		this.frame = frame;
-		this.pnlDroite = new JPanel(new GridLayout(0,2));
-		
-		this.txtfBinaire = new JTextField();
-		this.txtfBinaire.setColumns(25);
-		this.txtfBinaire.addKeyListener(new KeyListener() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				char key = e.getKeyChar();
+    public PanelHaut(FenetrePrincipale frame)
+    {
+        this.setLayout(new BorderLayout());
+        this.frame = frame;
+        this.pnlDroite = new JPanel(new GridLayout(0, 2));
 
-				if (key != '0' && key != '1')
-					e.consume();
-			}
+        this.txtfBinaire = new JTextField();
+        this.txtfBinaire.setColumns(25);
+        this.txtfBinaire.addKeyListener(new KeyListener()
+        {
+            @Override
+            public void keyTyped(KeyEvent e)
+            {
+                char key = e.getKeyChar();
 
-			@Override
-			public void keyPressed(KeyEvent e) {}
+                if (key != '0' && key != '1') e.consume();
+            }
 
-			@Override
-			public void keyReleased(KeyEvent e) {}
-		});
+            @Override
+            public void keyPressed(KeyEvent e) {}
 
-		this.cbbChoix = new JComboBox<>();
+            @Override
+            public void keyReleased(KeyEvent e) {}
+        });
 
-		for (TypeSignal t : TypeSignal.values())
-			this.cbbChoix.addItem(t.toString());
+        this.cbbChoix = new JComboBox<>();
 
-		this.btnValider = new JButton("GO");
-		this.btnValider.addActionListener(e-> {
-			frame.captureType();
-			frame.captureTexteBinaire();
-			});
+        for (TypeSignal t : TypeSignal.values())
+            this.cbbChoix.addItem(t);
 
-		this.add(this.txtfBinaire, BorderLayout.CENTER);
-		this.add(pnlDroite, BorderLayout.EAST);
-		this.pnlDroite.add(this.cbbChoix);
-		this.pnlDroite.add(this.btnValider);
-	}
-	
-	public String retourStringBinaire()
-	{
-		return txtfBinaire.getText();
-	}
+        this.btnValider = new JButton("GO");
+        this.btnValider.addActionListener(e ->
+        {
+            frame.captureType();
+            frame.captureTexteBinaire();
+        });
 
-	public TypeSignal retourType()
-	{
-		if     (cbbChoix.getSelectedItem().equals("NRZ"))                     return TypeSignal.NRZ;
-		else if(cbbChoix.getSelectedItem().equals("Manchester"))              return TypeSignal.MANCHESTER;
-		else if(cbbChoix.getSelectedItem().equals("Manchester Différentiel")) return TypeSignal.MANCHESTER_DIFF;
-		else                                                                  return TypeSignal.MILLER;
-	}
+        this.add(this.txtfBinaire, BorderLayout.CENTER);
+        this.add(pnlDroite, BorderLayout.EAST);
+        this.pnlDroite.add(this.cbbChoix);
+        this.pnlDroite.add(this.btnValider);
+    }
+
+    public String retourStringBinaire()
+    {
+        return txtfBinaire.getText();
+    }
+
+    public TypeSignal retourType()
+    {
+        return (TypeSignal) cbbChoix.getSelectedItem();
+    }
 }
