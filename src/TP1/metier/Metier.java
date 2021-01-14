@@ -7,8 +7,8 @@ public class Metier
 {
     /**
      * Utilisation de ces valeurs pour savoir quels partie d'un panel est a colorier.
-     * ces valeurs spécifique pour pouvoir les additionner de façon simple
-     * (seulement 2 cotés max a colorier par panel/cases.
+     * ces valeurs spÃ©cifique pour pouvoir les additionner de faÃ§on simple
+     * (seulement 2 cotÃ©s max a colorier par panel/cases.
      * donc 10 + 5  = 15
      *      10 + 20 = 30
      *      20 + 5  = 25

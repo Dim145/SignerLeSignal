@@ -22,7 +22,7 @@ public class PanelHaut extends JPanel {
 	public PanelHaut(FenetrePrincipale frame) {
 		this.setLayout(new BorderLayout());
 		this.frame = frame;
-		this.pnlDroite = new JPanel(new GridLayout(0,2));
+		this.pnlDroite = new JPanel(new BorderLayout());
 		
 		this.txtfBinaire = new JTextField();
 		this.txtfBinaire.setColumns(25);
@@ -55,8 +55,8 @@ public class PanelHaut extends JPanel {
 
 		this.add(this.txtfBinaire, BorderLayout.CENTER);
 		this.add(pnlDroite, BorderLayout.EAST);
-		this.pnlDroite.add(this.cbbChoix);
-		this.pnlDroite.add(this.btnValider);
+		this.pnlDroite.add(this.cbbChoix, BorderLayout.CENTER);
+		this.pnlDroite.add(this.btnValider, BorderLayout.EAST);
 	}
 	
 	public String retourStringBinaire()
