@@ -1,33 +1,31 @@
 package TP1.ihm;
 
+import java.awt.BorderLayout;
 import java.awt.GridLayout;
-import java.awt.event.*;
-import java.text.NumberFormat;
-import java.text.ParseException;
-import java.util.regex.Pattern;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-import javax.swing.*;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-import javax.swing.text.BadLocationException;
-import javax.swing.text.MaskFormatter;
-import javax.swing.text.NumberFormatter;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 import TP1.TypeSignal;
-import TP1.metier.Metier;
 
 public class PanelHaut extends JPanel {
-	FenetrePrincipale frame;
-	JFormattedTextField txtfBinaire;
-	JComboBox<String> cbbChoix;
-	JButton btnValider;
+	FenetrePrincipale   frame;
+	JTextField          txtfBinaire;
+	JComboBox<String>   cbbChoix;
+	JButton             btnValider;
+	JPanel              pnlDroite;
 
 	public PanelHaut(FenetrePrincipale frame) {
-		this.setLayout(new GridLayout(0, 3));
-
+		this.setLayout(new BorderLayout());
 		this.frame = frame;
-
-		this.txtfBinaire = new JFormattedTextField();
+		this.pnlDroite = new JPanel(new GridLayout(0,2));
+		
+		this.txtfBinaire = new JTextField();
+		this.txtfBinaire.setColumns(25);
 		this.txtfBinaire.addKeyListener(new KeyListener() {
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -50,15 +48,27 @@ public class PanelHaut extends JPanel {
 			this.cbbChoix.addItem(t.toString());
 
 		this.btnValider = new JButton("GO");
-		this.btnValider.addActionListener(e ->{frame.captureTexteBinaire();});
+		this.btnValider.addActionListener(e-> {
+			frame.captureType();
+			frame.captureTexteBinaire();
+			});
 
-		this.add(this.txtfBinaire);
-		this.add(this.cbbChoix);
-		this.add(this.btnValider);
+		this.add(this.txtfBinaire, BorderLayout.CENTER);
+		this.add(pnlDroite, BorderLayout.EAST);
+		this.pnlDroite.add(this.cbbChoix);
+		this.pnlDroite.add(this.btnValider);
 	}
 	
 	public String retourStringBinaire()
 	{
 		return txtfBinaire.getText();
+	}
+
+	public TypeSignal retourType()
+	{
+		if     (cbbChoix.getSelectedItem().equals("NRZ"))                     return TypeSignal.NRZ;
+		else if(cbbChoix.getSelectedItem().equals("Manchester"))              return TypeSignal.MANCHESTER;
+		else if(cbbChoix.getSelectedItem().equals("Manchester Différentiel")) return TypeSignal.MANCHESTER_DIFF;
+		else                                                                  return TypeSignal.MILLER;
 	}
 }

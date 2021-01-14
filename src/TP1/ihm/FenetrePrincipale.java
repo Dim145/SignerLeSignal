@@ -5,7 +5,6 @@ import java.awt.BorderLayout;
 import javax.swing.*;
 
 import TP1.Controlleur;
-import TP1.metier.Metier;
 
 public class FenetrePrincipale extends JFrame
 {
@@ -33,5 +32,10 @@ public class FenetrePrincipale extends JFrame
 	public void captureTexteBinaire()
 	{
 		control.creerTableau(pnlHaut.retourStringBinaire());
+	}
+	
+	public void captureType()
+	{
+		control.changeType(pnlHaut.retourType());
 	}
 }

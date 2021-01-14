@@ -23,7 +23,7 @@ public enum TypeSignal
         {
             case 0 -> res = "NRZ";
             case 1 -> res = "Manchester";
-            case 2 -> res = "Machester Différentiel";
+            case 2 -> res = "Manchester Différentiel";
             case 3 -> res = "Miller";
         }
 

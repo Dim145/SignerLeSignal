@@ -18,6 +18,11 @@ public class Controlleur
 	{
 		this.metier.creerTableaux(txt);
 	}
+	
+	public void changeType(TypeSignal type)
+	{
+		metier.changeType(type);
+	}
 
 	public static void main(String[] args)
 	{
