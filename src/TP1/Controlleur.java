@@ -14,6 +14,11 @@ public class Controlleur
 		this.ihm    = new FenetrePrincipale(metier);
 	}
 
+	public void creerTableaux(String text)
+	{
+		this.metier.creerTableaux(text);
+	}
+
 	public static void main(String[] args)
 	{
 		Controlleur c = new Controlleur();
