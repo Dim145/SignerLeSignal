@@ -23,16 +23,19 @@ import TP1.metier.Metier;
 
 public class PanelHaut extends JPanel
 {
-	Metier              metier;
-	JFormattedTextField txtfBinaire;
-	JComboBox<String>   cbbChoix;
-	JButton             btnValider;
+	private FenetrePrincipale   frame;
+	private JFormattedTextField txtfBinaire;
+	private int                 caseBinaire   = 0;
+	private String              stringBinaire = "";
+	private JTextField          txtEnvoi;
+	private JComboBox<String>   cbbChoix;
+	private JButton             btnValider;
 	
-	public PanelHaut(Metier metier)
+	public PanelHaut(FenetrePrincipale frame)
 	{
 		this.setLayout(new GridLayout(0,3));
 		
-		this.metier = metier;
+		this.frame = frame;
 		
 		MaskFormatter binaireOnly = null;
 		try
@@ -42,6 +45,21 @@ public class PanelHaut extends JPanel
 		binaireOnly.setValidCharacters("01");
 		
 		this.txtfBinaire = new JFormattedTextField(binaireOnly);
+		this.txtEnvoi    = new JTextField();
+		this.txtfBinaire.getDocument().addDocumentListener(new DocumentListener() {
+			
+			@Override
+			public void removeUpdate(DocumentEvent e){}
+			
+			@Override
+			public void insertUpdate(DocumentEvent e)
+			{
+				this
+			}
+			
+			@Override
+			public void changedUpdate(DocumentEvent e){}
+		});
 		
 		this.cbbChoix = new JComboBox<String>();
 		this.cbbChoix.addItem("NRZ");
@@ -57,12 +75,18 @@ public class PanelHaut extends JPanel
 			public void actionPerformed(ActionEvent e)
 			{
 				//envoi de données vers le metier via txtfBinaire.getText()
-				metier.creerTableaux(txtfBinaire.getText());
+				frame.captureTexteBinaire();
 			}
 		});
 		
 		this.add(this.txtfBinaire);
 		this.add(this.cbbChoix);
 		this.add(this.btnValider);
+	}
+	
+	public String retourStringBinaire()
+	{
+		System.out.println(txtfBinaire.getText());
+		return this.txtfBinaire.getText();
 	}
 }
