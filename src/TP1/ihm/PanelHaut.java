@@ -20,17 +20,20 @@ public class PanelHaut extends JPanel
     JButton btnValider;
     JPanel pnlDroite;
 
-	public PanelHaut(FenetrePrincipale frame) {
-		this.setLayout(new BorderLayout());
-		this.frame = frame;
-		this.pnlDroite = new JPanel(new BorderLayout());
-		
-		this.txtfBinaire = new JTextField();
-		this.txtfBinaire.setColumns(25);
-		this.txtfBinaire.addKeyListener(new KeyListener() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				char key = e.getKeyChar();
+    public PanelHaut(FenetrePrincipale frame)
+    {
+        this.setLayout(new BorderLayout());
+        this.frame = frame;
+        this.pnlDroite = new JPanel(new BorderLayout());
+
+        this.txtfBinaire = new JTextField();
+        this.txtfBinaire.setColumns(25);
+        this.txtfBinaire.addKeyListener(new KeyListener()
+        {
+            @Override
+            public void keyTyped(KeyEvent e)
+            {
+                char key = e.getKeyChar();
 
                 if (key != '0' && key != '1') e.consume();
             }
@@ -54,16 +57,16 @@ public class PanelHaut extends JPanel
             frame.captureTexteBinaire();
         });
 
-		this.add(this.txtfBinaire, BorderLayout.CENTER);
-		this.add(pnlDroite, BorderLayout.EAST);
-		this.pnlDroite.add(this.cbbChoix, BorderLayout.CENTER);
-		this.pnlDroite.add(this.btnValider, BorderLayout.EAST);
-	}
-	
-	public String retourStringBinaire()
-	{
-		return txtfBinaire.getText();
-	}
+        this.add(this.txtfBinaire, BorderLayout.CENTER);
+        this.add(pnlDroite, BorderLayout.EAST);
+        this.pnlDroite.add(this.cbbChoix, BorderLayout.CENTER);
+        this.pnlDroite.add(this.btnValider, BorderLayout.EAST);
+    }
+
+    public String retourStringBinaire()
+    {
+        return txtfBinaire.getText();
+    }
 
     public TypeSignal retourType()
     {
