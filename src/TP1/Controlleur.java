@@ -24,6 +24,11 @@ public class Controlleur
 	{
 		metier.changeType(type);
 	}
+	
+	public void recupererTabPanel(int[] tab)
+	{
+		this.ihm.recupererTabPanel(tab);
+	}
 
 	public static void main(String[] args)
 	{

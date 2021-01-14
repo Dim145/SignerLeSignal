@@ -1,12 +1,36 @@
 package TP1.ihm;
 
+import java.awt.GridLayout;
+
 import javax.swing.*;
 
 public class PanelGraph extends JPanel
 {
+	private FenetrePrincipale frame;
+	private int[]             tab;
+	private PanelDessin[]     tabPanel;
 	
-	public PanelGraph()
+	public PanelGraph(FenetrePrincipale frame)
 	{
+		this.frame = frame;
+		this.construireTabPanel();
+	}
+	
+	public void recupererTabPanel(int[] tab)
+	{
+		this.tab = tab;
+	}
+	
+	public void construireTabPanel()
+	{
+		this.setLayout(new GridLayout(1, this.tab.length));
+		this.tabPanel = new PanelDessin[this.tab.length];
 		
+		for (int i = 0; i < tab.length; i++)
+		{
+			this.tabPanel[i] = new PanelDessin(this.tab[i]);
+			this.add(tabPanel[i]);
+		}
+		//SwingUtilities.updateComponentTreeUI(frame);
 	}
 }

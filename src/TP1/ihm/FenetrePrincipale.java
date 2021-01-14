@@ -18,15 +18,22 @@ public class FenetrePrincipale extends JFrame
 		this.setSize(500, 500);
 		
 
-		this.control = control;
-		this.pnlHaut = new PanelHaut(this);
+		this.control  = control;
+		this.pnlHaut  = new PanelHaut(this);
+		this.pnlGraph = new PanelGraph(this);
 		this.add(pnlHaut, BorderLayout.NORTH);
+		this.add(pnlGraph, BorderLayout.CENTER);
 		
 		
 		this.pack();
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
+	}
+	
+	public void recupererTabPanel(int[] tab)
+	{
+		this.pnlGraph.recupererTabPanel(tab);
 	}
 	
 	public void captureTexteBinaire()
