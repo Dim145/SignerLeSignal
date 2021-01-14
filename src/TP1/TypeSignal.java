@@ -7,7 +7,7 @@ public enum TypeSignal
     MANCHESTER_DIFF(2),
     MILLER(3);
 
-    private int type;
+    private final int type;
 
     TypeSignal(int type)
     {

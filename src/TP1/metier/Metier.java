@@ -5,6 +5,16 @@ import TP1.TypeSignal;
 
 public class Metier
 {
+    /**
+     * Utilisation de ces valeurs pour savoir quels partie d'un panel est a colorier.
+     * ces valeurs spécifique pour pouvoir les additionner de façon simple
+     * (seulement 2 cotés max a colorier par panel/cases.
+     * donc 10 + 5  = 15
+     *      10 + 20 = 30
+     *      20 + 5  = 25
+     *      ect...
+ *      c'est toujours reconnaisable.
+     */
     public static final int VAL_HAUT   = 5;
     public static final int VAL_DROITE = 10;
     public static final int VAL_BAS    = 20;
