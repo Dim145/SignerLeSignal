@@ -7,7 +7,7 @@ import javax.swing.*;
 public class PanelGraph extends JPanel
 {
 	private FenetrePrincipale frame;
-	private int[]             tab;
+	private int[]             tab = {5,10,15,20,30,40,45,55,60,70};
 	private PanelDessin[]     tabPanel;
 	
 	public PanelGraph(FenetrePrincipale frame)
@@ -18,6 +18,7 @@ public class PanelGraph extends JPanel
 	public void update(int[] tab)
 	{
 		this.tab = tab;
+		construireTabPanel();
 		this.construireTabPanel();
 	}
 	
@@ -32,5 +33,6 @@ public class PanelGraph extends JPanel
 			this.add(tabPanel[i]);
 		}
 		//SwingUtilities.updateComponentTreeUI(frame);
+		this.repaint();
 	}
 }
