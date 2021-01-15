@@ -1,6 +1,6 @@
 package TP1.ihm;
 
-import java.awt.BorderLayout;
+import java.awt.*;
 
 import javax.swing.*;
 
@@ -24,7 +24,7 @@ public class FenetrePrincipale extends JFrame
 		this.add(pnlHaut, BorderLayout.NORTH);
 		this.add(pnlGraph, BorderLayout.CENTER);
 		
-		
+		this.setMinimumSize(new Dimension(200, 300));
 		this.pack();
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -30,7 +30,7 @@ public class PanelGraph extends JPanel
 		
 		for (int i = 0; i < tab.length; i++)
 		{
-			this.tabPanel[i] = new PanelDessin(this.tab[i]);
+			this.tabPanel[i] = new PanelDessin(this.tab[i], i%2 != 0);
 			this.add(tabPanel[i]);
 		}
 
