@@ -18,7 +18,8 @@ public class PanelGraph extends JPanel
 	public void update(int[] tab)
 	{
 		this.tab = tab;
-		construireTabPanel();
+
+		this.removeAll();
 		this.construireTabPanel();
 	}
 	
@@ -32,7 +33,7 @@ public class PanelGraph extends JPanel
 			this.tabPanel[i] = new PanelDessin(this.tab[i]);
 			this.add(tabPanel[i]);
 		}
-		//SwingUtilities.updateComponentTreeUI(frame);
-		this.repaint();
+
+		SwingUtilities.updateComponentTreeUI(this);
 	}
 }
