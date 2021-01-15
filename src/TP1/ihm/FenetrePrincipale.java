@@ -35,10 +35,15 @@ public class FenetrePrincipale extends JFrame
 	{
 		this.pnlGraph.update(tab);
 	}
-	
+
+	public String getStringBinaire()
+	{
+		return pnlHaut.retourStringBinaire();
+	}
+
 	public void captureTexteBinaire()
 	{
-		control.creerTableau(pnlHaut.retourStringBinaire());
+		control.creerTableau(this.getStringBinaire());
 	}
 	
 	public void captureType()
