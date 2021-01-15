@@ -15,7 +15,6 @@ public class FenetrePrincipale extends JFrame
 	public FenetrePrincipale(Controlleur control)
 	{
 		this.setTitle("Projet Boireau/Dubois");
-		this.setSize(500, 500);
 		
 
 		this.control  = control;
@@ -24,7 +23,7 @@ public class FenetrePrincipale extends JFrame
 		this.add(pnlHaut, BorderLayout.NORTH);
 		this.add(pnlGraph, BorderLayout.CENTER);
 		
-		this.setMinimumSize(new Dimension(200, 300));
+		this.setMinimumSize(new Dimension(300, 200));
 		this.pack();
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -21,7 +21,7 @@ public class PanelDessin extends JPanel
 	public void paint(Graphics g)
 	{
 		if( isSecond )
-			g.drawLine(this.getWidth()-1, 10, this.getWidth()-1, this.getHeight()-10);
+			g.drawLine(this.getWidth()-1, 0, this.getWidth()-1, this.getHeight());
 
 		g.setColor(Color.red);
 

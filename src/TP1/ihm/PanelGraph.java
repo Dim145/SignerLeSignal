@@ -36,9 +36,23 @@ public class PanelGraph extends JPanel
 		for (int cpt = 0; cpt < this.tab.length; cpt++ )
 		{
 			JLabel label = new JLabel();
-			panelTmp.add(label);
 
-			if( cpt % 2 != 0 ) label.setText(String.valueOf(binaires.charAt(cpt/2)));
+			if( cpt % 2 != 0 )
+			{
+				label = new JLabel()
+				{
+					@Override
+					public void paint(Graphics g)
+					{
+						super.paint(g);
+						g.drawLine(this.getWidth()-1, 0, this.getWidth()-1, this.getHeight());
+					}
+				};
+
+				label.setText(String.valueOf(binaires.charAt(cpt/2)));
+			}
+
+			panelTmp.add(label);
 		}
 
 		this.add(panelTmp, BorderLayout.NORTH);
