@@ -5,13 +5,12 @@ import TP1.metier.Metier;
 
 public class Controlleur
 {
-    private Metier            metier;
-    private FenetrePrincipale ihm;
+    private final Metier            metier;
+    private final FenetrePrincipale ihm;
 
 	public Controlleur()
 	{
 		this.metier = new Metier(this);
-		this.metier.changeType(TypeSignal.MANCHESTER_DIFF);
 		this.ihm    = new FenetrePrincipale(this);
 	}
 	
@@ -25,9 +24,9 @@ public class Controlleur
 		metier.changeType(type);
 	}
 	
-	public void recupererTabPanel(int[] tab)
+	public void update(int[] tab)
 	{
-		this.ihm.recupererTabPanel(tab);
+		this.ihm.update(tab);
 	}
 
 	public static void main(String[] args)

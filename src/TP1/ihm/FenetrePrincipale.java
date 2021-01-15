@@ -31,9 +31,9 @@ public class FenetrePrincipale extends JFrame
 		this.setVisible(true);
 	}
 	
-	public void recupererTabPanel(int[] tab)
+	public void update(int[] tab)
 	{
-		this.pnlGraph.recupererTabPanel(tab);
+		this.pnlGraph.update(tab);
 	}
 	
 	public void captureTexteBinaire()

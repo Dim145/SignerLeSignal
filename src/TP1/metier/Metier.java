@@ -79,25 +79,53 @@ public class Metier
                         }
                         else
                         {
+                            boolean isBas = tabDessin[(cpt - 1) * 2 + 1] == VAL_BAS || tabDessin[(cpt - 1) * 2 + 1] == VAL_BAS + VAL_DROITE;
                             if ( current == '0' )
                             {
                                 tabDessin[cpt*2  ] = tabDessin[(cpt-1)*2  ];
-                                tabDessin[cpt*2+1] = tabDessin[(cpt-1)*2+1];
+                                tabDessin[cpt*2+1] = isBas ? VAL_BAS : VAL_HAUT;
                             }
                             else
                             {
-                                tabDessin[cpt*2  ] = (tabDessin[(cpt-1)*2] == VAL_BAS + VAL_DROITE ? VAL_HAUT : VAL_BAS) + VAL_DROITE;
-                                //tabDessin[cpt*2+1] = tabDessin[(cpt-1)*2+1] == ;
+                                tabDessin[cpt*2  ] = (tabDessin[(cpt-1)*2] == (VAL_BAS + VAL_DROITE) ? VAL_HAUT : VAL_BAS) + VAL_DROITE;
+                                tabDessin[cpt*2+1] = isBas ? VAL_HAUT : VAL_BAS;
                             }
                         }
 
                         if (suivant == '0')
                             tabDessin[cpt*2+1] += VAL_DROITE;
                     }
+
+                    case MILLER ->
+                    {
+                        if( cpt == 0 )
+                        {
+                            tabDessin[0] = (current == '1' ? VAL_BAS + VAL_DROITE : VAL_BAS);
+                            tabDessin[1] = current == '1' ? VAL_HAUT  : VAL_BAS;
+                        }
+                        else
+                        {
+                            if( current == '1' )
+                            {
+                                tabDessin[cpt*2  ] = tabDessin[(cpt-1)*2+1] + VAL_DROITE;
+                                tabDessin[cpt*2+1] = tabDessin[(cpt-1)*2+1] == VAL_BAS ? VAL_HAUT : VAL_BAS;
+                            }
+                            else
+                            {
+                                tabDessin[cpt*2  ] = bits.charAt(cpt-1) == '0' ? (tabDessin[(cpt-1)*2] == VAL_BAS ? VAL_HAUT : VAL_BAS) : tabDessin[(cpt-1)*2+1];
+                                tabDessin[cpt*2+1] = tabDessin[cpt*2];
+                            }
+                        }
+
+                        if ( current == '0' && suivant == current )
+                            tabDessin[cpt*2+1] += VAL_DROITE;
+                    }
                 }
             }
 
             for (int i : tabDessin) System.out.print(i + " | ");
+
+            this.ctrl.update(tabDessin);
 
         }).start();
 	}

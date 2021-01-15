@@ -13,12 +13,12 @@ public class PanelGraph extends JPanel
 	public PanelGraph(FenetrePrincipale frame)
 	{
 		this.frame = frame;
-		this.construireTabPanel();
 	}
 	
-	public void recupererTabPanel(int[] tab)
+	public void update(int[] tab)
 	{
 		this.tab = tab;
+		this.construireTabPanel();
 	}
 	
 	public void construireTabPanel()

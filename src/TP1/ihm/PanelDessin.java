@@ -13,6 +13,6 @@ public class PanelDessin extends JPanel
 	public PanelDessin(int setup)
 	{
 		this.setup = setup;
-		Graphics2D g2 = new Gra
+		Graphics2D g2;
 	}
 }
