@@ -35,6 +35,13 @@ public class PanelHaut extends JPanel
             {
                 char key = e.getKeyChar();
 
+                if( key == KeyEvent.VK_ENTER)
+                {
+                    frame.captureType();
+                    frame.captureTexteBinaire();
+                    System.out.println("entrer !");
+                }
+
                 if (key != '0' && key != '1') e.consume();
             }
 
