@@ -1,14 +1,14 @@
+.git
+/javadoc/
 
 # pour intelliJ
+/.idea/
 .idea
 SignerLeSignal.iml
 
 out
 
 # pour eclipse
-
-.git
-/.idea/
 /bin/
 .classpath
 .project
