@@ -1,17 +1,22 @@
 package TP1.ihm;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import javax.swing.*;
+import java.awt.*;
 
-import javax.swing.JButton;
-import javax.swing.JPanel;
-
+/**
+ * The type Panel dessin.
+ */
 public class PanelDessin extends JPanel
 {
 	private final int setup;
 	private final boolean isSecond;
 
+	/**
+	 * Instantiates a new Panel dessin.
+	 *
+	 * @param setup    the setup
+	 * @param isSecond the is second
+	 */
 	public PanelDessin(int setup, boolean isSecond)
 	{
 		this.setup = setup;

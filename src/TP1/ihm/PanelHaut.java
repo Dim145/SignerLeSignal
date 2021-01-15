@@ -1,25 +1,43 @@
 package TP1.ihm;
 
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
+import TP1.TypeSignal;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-
-import TP1.TypeSignal;
-
+/**
+ * The type Panel haut.
+ */
 public class PanelHaut extends JPanel
 {
+    /**
+     * The Frame.
+     */
     FenetrePrincipale frame;
+    /**
+     * The Txtf binaire.
+     */
     JTextField txtfBinaire;
+    /**
+     * The Cbb choix.
+     */
     JComboBox<TypeSignal> cbbChoix;
+    /**
+     * The Btn valider.
+     */
     JButton btnValider;
+    /**
+     * The Pnl droite.
+     */
     JPanel pnlDroite;
 
+    /**
+     * Instantiates a new Panel haut.
+     *
+     * @param frame the frame
+     */
     public PanelHaut(FenetrePrincipale frame)
     {
         this.setLayout(new BorderLayout());
@@ -69,11 +87,21 @@ public class PanelHaut extends JPanel
         this.pnlDroite.add(this.btnValider, BorderLayout.EAST);
     }
 
+    /**
+     * Retour string binaire string.
+     *
+     * @return the string
+     */
     public String retourStringBinaire()
     {
         return txtfBinaire.getText();
     }
 
+    /**
+     * Retour type type signal.
+     *
+     * @return the type signal
+     */
     public TypeSignal retourType()
     {
         return (TypeSignal) cbbChoix.getSelectedItem();

@@ -1,22 +1,34 @@
 package TP1.ihm;
 
+import javax.swing.*;
 import java.awt.*;
 
-import javax.swing.*;
-
+/**
+ * The type Panel graph.
+ */
 public class PanelGraph extends JPanel
 {
 	private final FenetrePrincipale frame;
 	private int[]             tab = {5,10,15,20,30,40,45,55,60,70};
 	private PanelDessin[]     tabPanel;
-	
+
+	/**
+	 * Instantiates a new Panel graph.
+	 *
+	 * @param frame the frame
+	 */
 	public PanelGraph(FenetrePrincipale frame)
 	{
 		this.frame = frame;
 
 		this.setLayout(new BorderLayout());
 	}
-	
+
+	/**
+	 * Update.
+	 *
+	 * @param tab the tab
+	 */
 	public void update(int[] tab)
 	{
 		this.tab = tab;
@@ -58,6 +70,9 @@ public class PanelGraph extends JPanel
 		this.add(panelTmp, BorderLayout.NORTH);
 	}
 
+	/**
+	 * Construire tab panel.
+	 */
 	public void construireTabPanel()
 	{
 		JPanel panelTmp = new JPanel();

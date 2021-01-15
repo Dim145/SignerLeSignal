@@ -3,6 +3,9 @@ package TP1.metier;
 import TP1.Controlleur;
 import TP1.TypeSignal;
 
+/**
+ * The type Metier.
+ */
 public class Metier
 {
     /**
@@ -10,26 +13,45 @@ public class Metier
      * ces valeurs spÃ©cifique pour pouvoir les additionner de faÃ§on simple
      * (seulement 2 cotÃ©s max a colorier par panel/cases.
      * donc 10 + 5  = 15
-     *      10 + 20 = 30
-     *      20 + 5  = 25
-     *      ect...
- *      c'est toujours reconnaisable.
+     * 10 + 20 = 30
+     * 20 + 5  = 25
+     * ect...
+     * c'est toujours reconnaisable.
      */
     public static final int VAL_HAUT   = 5;
+    /**
+     * The constant VAL_DROITE.
+     */
     public static final int VAL_DROITE = 10;
+    /**
+     * The constant VAL_BAS.
+     */
     public static final int VAL_BAS    = 20;
+    /**
+     * The constant VAL_GAUCHE.
+     */
     public static final int VAL_GAUCHE = 40;
 
-    private Controlleur ctrl;
+    private final Controlleur ctrl;
     private TypeSignal typeCourant;
 
-	public Metier(Controlleur controlleur)
+    /**
+     * Instantiates a new Metier.
+     *
+     * @param controlleur the controlleur
+     */
+    public Metier(Controlleur controlleur)
 	{
         this.ctrl = controlleur;
 
         this.typeCourant = TypeSignal.NRZ;
     }
 
+    /**
+     * Change type.
+     *
+     * @param type the type
+     */
     public void changeType( TypeSignal type )
     {
         if( type == null ) return;
@@ -37,6 +59,11 @@ public class Metier
         this.typeCourant = type;
     }
 
+    /**
+     * Creer tableaux.
+     *
+     * @param bits the bits
+     */
     public void creerTableaux( String bits )
     {
         if( bits == null ) return;
