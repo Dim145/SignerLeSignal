@@ -4,6 +4,8 @@ import TP1.TypeSignal;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -59,7 +61,19 @@ public class PanelHaut extends JPanel
                     frame.captureTexteBinaire();
                 }
 
-                if (key != '0' && key != '1') e.consume();
+                if (key != '0' && key != '1')
+                {
+                    try
+                    {
+                        ((Runnable)Toolkit.getDefaultToolkit().getDesktopProperty("win.sound.exclamation")).run();
+                    }
+                    catch (Exception exception)
+                    {
+                        exception.printStackTrace();
+                    }
+
+                    e.consume();
+                }
             }
 
             @Override

@@ -34,6 +34,8 @@ public class PanelGraph extends JPanel
 		this.tab = tab;
 
 		this.removeAll();
+		System.gc();
+
 		this.construireChaine();
 		this.construireTabPanel();
 	}
@@ -79,12 +81,13 @@ public class PanelGraph extends JPanel
 		panelTmp.setLayout(new GridLayout(1, this.tab.length));
 
 		this.tabPanel = new PanelDessin[this.tab.length];
+		System.gc();
 		
 		for (int i = 0; i < tab.length; i++)
-		{
 			this.tabPanel[i] = new PanelDessin(this.tab[i], i%2 != 0);
+
+		for (int i = 0; i < tab.length; i++)
 			panelTmp.add(tabPanel[i]);
-		}
 
 		this.add(panelTmp, BorderLayout.CENTER);
 
