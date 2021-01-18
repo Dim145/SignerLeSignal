@@ -150,7 +150,7 @@ public class Metier
                 }
             }
 
-            for (int i : tabDessin) System.out.print(i + " | ");
+            //for (int i : tabDessin) System.out.print(i + " | ");
 
             this.ctrl.update(tabDessin);
 
