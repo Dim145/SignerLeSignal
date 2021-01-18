@@ -46,7 +46,14 @@ public class PanelHaut extends JPanel
         this.frame = frame;
         this.pnlDroite = new JPanel(new BorderLayout());
 
-        this.txtfBinaire = new JTextField();
+        this.txtfBinaire = new JTextField()
+        {
+            @Override
+            public void paste()
+            {
+
+            }
+        };
         this.txtfBinaire.setColumns(25);
         this.txtfBinaire.addKeyListener(new KeyListener()
         {
