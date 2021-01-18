@@ -59,6 +59,9 @@ public class PanelHaut extends JPanel
                 {
                     frame.captureType();
                     frame.captureTexteBinaire();
+
+                    e.consume();
+                    return;
                 }
 
                 if (key != '0' && key != '1')
