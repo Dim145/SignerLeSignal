@@ -39,7 +39,7 @@ public class PanelDessin extends JPanel
 		//ligne droite
 		if(setup == 10 || setup == 15 || setup == 30|| setup == 55 || setup == 70)
 		{
-			g.drawLine(this.getWidth()-3, 10, this.getWidth()-3, this.getHeight()-10);
+			g.drawLine(this.getWidth()-1, 10, this.getWidth()-1, this.getHeight()-10);
 		}
 
 		//ligne bas
