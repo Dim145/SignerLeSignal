@@ -29,6 +29,7 @@ public class PanelDessin extends JPanel
 			g.drawLine(this.getWidth()-1, 0, this.getWidth()-1, this.getHeight());
 
 		g.setColor(Color.red);
+		((Graphics2D) g).setStroke(new BasicStroke(3));
 
 		//ligne haut
 		if(setup == 5 || setup == 15 || setup == 25 || setup == 45 || setup == 55)
