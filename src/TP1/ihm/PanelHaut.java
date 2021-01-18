@@ -68,7 +68,8 @@ public class PanelHaut extends JPanel
                 {
                     try
                     {
-                        ((Runnable)Toolkit.getDefaultToolkit().getDesktopProperty("win.sound.exclamation")).run();
+                        if( key != KeyEvent.VK_BACK_SPACE )
+                            Toolkit.getDefaultToolkit().beep();
                     }
                     catch (Exception exception)
                     {
